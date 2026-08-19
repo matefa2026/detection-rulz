@@ -10,7 +10,7 @@
 
 # ----- REQUIRED -----
 
-id: "53D4C46C-ABD9-4091-A5D9-03C11E5626DC"                    # uuidgen -7 / python -c "import uuid; print(uuid.uuid7())"
+id: "96be138a-1567-4d8f-91ac-6c8dc3490d69"                    # uuidgen -7 / python -c "import uuid; print(uuid.uuid7())"
 name: "Template TEst"     # 1-200 characters
 severity: 3                                      # 1=LOW, 2=MEDIUM, 3=HIGH, 4=CRITICAL
 state: "test_mode"                                 # enabled | disabled | test_mode
