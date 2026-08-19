@@ -5,10 +5,10 @@ state: "test_mode"
 frequencyCron: "15m"
 lookBackSeconds: 900
 mitreTechniques:
-  - "T1133.001"
+  - "T1003.001"
 logicDescription: "This detection triggers an alert when an inbound RDP connection (port 3389) is observed from a public IP address to a private internal IP address. "
 references:
-  - "https://attack.mitre.org/techniques/T1133/"
+  - "https://attack.mitre.org/techniques/T1003/"
 deduplicationFields:
   - "device.hostname"
 deduplicationWindowSeconds: 3600
