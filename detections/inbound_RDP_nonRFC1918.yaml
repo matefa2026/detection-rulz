@@ -1,0 +1,27 @@
+id: "019f1914-abcd-7067-aa94-cdb32c27e55d"
+name: "RDP Traffic from External IP addresses"
+severity: 4
+state: "test_mode"
+frequencyCron: "15m"
+lookBackSeconds: 900
+mitreTechniques:
+  - "T1133.001"
+logicDescription: "This detection triggers an alert when an inbound RDP connection (port 3389) is observed from a public IP address to a private internal IP address. "
+references:
+  - "https://attack.mitre.org/techniques/T1133/"
+deduplicationFields:
+  - "device.hostname"
+deduplicationWindowSeconds: 3600
+query: |-
+  @data_type:rmwql/Firewall
+  | where dst_endpoint.port == "3389"
+  | where not (
+    ipv4_is_in_range(src_endpoint.ip, "10.0.0.0/8") or
+    ipv4_is_in_range(src_endpoint.ip, "172.16.0.0/12") or
+    ipv4_is_in_range(src_endpoint.ip, "192.168.0.0/16")
+  )
+  | where (
+    ipv4_is_in_range(dst_endpoint.ip, "10.0.0.0/8") or
+    ipv4_is_in_range(dst_endpoint.ip, "172.16.0.0/12") or
+    ipv4_is_in_range(dst_endpoint.ip, "192.168.0.0/16")
+  )
