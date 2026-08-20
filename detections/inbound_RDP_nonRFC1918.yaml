@@ -1,7 +1,7 @@
 id: "019f1914-abcd-7067-aa94-cdb32c27e55d"
 name: "RDP Traffic from External IP addresses"
 severity: 4
-state: "enabled"
+state: "test_mode"
 frequencyCron: "15m"
 lookBackSeconds: 900
 mitreTechniques:
